@@ -174,3 +174,4 @@ select * from tableA where A=‘1’ and B='2’
 5. 行所存储的值的最大值为页的大小的一半，一般情况下页的大小是16kB，所以每行的长度大小不能超过8
    kb；2的16次刚好为65535；
 6. 行长度（除去可变长类型：VARBINARY/VARCHAR/BLOB/TEXT），要小于页长（如4KB, 8KB, 16KB, and 32KB）的一半。例如：innodb_page_size 长度是16KB的话，行长不超过8KB；如果innodb_page_size 是64KB的话，行长不超过16KB； LONGBLOB/LONGTEXT/BLOB/TEXT列必须小于4GB，整个行长也必须小于4GB。如果一行小于一页的一半，它可以存在一个page里面。如果超过了页的一半，就会把可变长列放到额外的页存
+7. 数据库维护一个连接 约需要2M内存
